@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Name of the app -->
+  <title>Stationery Info</title>
+
+<body onload="initialize()">
+  <script>
+    function initialize() {
+      if (navigator.onLine) {
+        const xhr = new XMLHttpRequest();
+        const url = "stationery.json";
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var stationery = JSON.parse(xhr.response).stationery;
+            stationery.forEach(addRow);
+          }
+        };
+
+        xhr.open("get", url);
+        xhr.send();
+      }
+    }
+
+    function addRow(stationery) {
+      // Add code here for part (b)
+      var stationerylist = document.getElementById("stationerylist");
+      var row = stationerylist.insertRow();
+
+      var nameCell = row.insertCell();
+      nameCell.innerHTML = stationery.name;
+
+      var priceCell = row.insertCell();
+      priceCell.innerHTML = stationery.price;
+
+      var stockCell = row.insertCell();
+      stockCell.innerHTML = stationery.stock;
+
+      var increasedStockCell = row.insertCell();
+      increasedStockCell.innerHTML = stationery.stock + 10;
+    }
+  </script>
+
+  <!-- Add code here for part (a) -->
+  <table border="1">
+    <caption style="font-size:2.5em">Stationery List</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Increased Stock</th>
+      </tr>
+    </thead>
+    <tbody id="stationerylist">
+    </tbody>
+
+  </table>
+</body>
+
+</html>

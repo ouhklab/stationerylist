@@ -1,0 +1,24 @@
+{
+  "stationery": [
+    {
+      "name": "Envelopes",
+      "price": 10,
+      "stock": 50
+    },
+    {
+      "name": "File folder",
+      "price": 5,
+      "stock": 80
+    },
+    {
+      "name": "Pen",
+      "price": 15,
+      "stock": 100
+    },
+    {
+      "name": "Stapler",
+      "price": 35,
+      "stock": 30
+    }
+  ]
+}
